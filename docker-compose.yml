@@ -4,6 +4,9 @@ services:
                 image: csv-demo/backend
                 container_name: backend
                 build: ./backend
+                environment:
+                        - DOMAIN=localhost
+                        - DJANGO_SETTINGS_MODULE=config.settings
                 expose: 
                         - 8000
                 volumes:
@@ -17,6 +20,8 @@ services:
                 image: csv-demo/nginx
                 container_name: nginx
                 build: ./nginx
+                environment:
+                        - DOMAIN=localhost
                 links:
                         - backend
                         - frontend
