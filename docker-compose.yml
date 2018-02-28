@@ -6,7 +6,7 @@ services:
                 build: ./backend
                 environment:
                         - DOMAIN=localhost
-                        - DJANGO_SETTINGS_MODULE=config.settings
+                        - DJANGO_SETTINGS_MODULE=config.settings.local
                 expose: 
                         - 8000
                 volumes:
