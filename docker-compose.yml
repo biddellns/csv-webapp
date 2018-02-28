@@ -21,13 +21,16 @@ services:
                 container_name: nginx
                 build: ./nginx
                 environment:
+                        - USE_LETSENCRYPT=F
                         - DOMAIN=localhost
                 links:
                         - backend
                         - frontend
                 ports:
                         - "80:80"
+                        - "443:443"
                 volumes:
                         - static:/static
+                        - ./nginx/ssl:/certificates
 volumes:
         static: 
