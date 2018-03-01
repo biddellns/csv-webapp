@@ -2,7 +2,7 @@ version: "3"
 services:
         backend:
                restart: always
-               image: kohonski/csv-webapp-backend
+               image: kohonski/csv-demo-backend
                container_name: backend
                environment:
                        - DOMAIN
@@ -14,12 +14,12 @@ services:
 
         frontend:
                 restart: always
-                image: kohonski/csv-webapp-frontend
+                image: kohonski/csv-demo-frontend
                 container_name: frontend
 
         nginx:
                 restart: always
-                image: kohonski/csv-webapp-nginx
+                image: kohonski/csv-demo-nginx
                 container_name: nginx
                 environment:
                         - DOMAIN
