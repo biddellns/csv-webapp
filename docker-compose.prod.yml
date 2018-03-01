@@ -1,0 +1,37 @@
+version: "3"
+services:
+        backend:
+               restart: always
+               image: kohonski/csv-webapp-backend
+               container_name: backend
+               environment:
+                       - DOMAIN
+                       - DJANGO_SETTINGS_MODULE=config.settings.prod
+               volumes:
+                       - static:/var/www/static
+               expose:
+                       - "8000"
+
+        frontend:
+                restart: always
+                image: kohonski/csv-webapp-frontend
+                container_name: frontend
+
+        nginx:
+                restart: always
+                image: kohonski/csv-webapp-nginx
+                container_name: nginx
+                environment:
+                        - DOMAIN
+                        - USE_LETSENCRYPT=T
+                volumes:
+                        - ./letsencrypt:/etc/letsencrypt
+                        - static:/static
+                ports:
+                        - "80:80"
+                        - "443:443"
+                links:
+                        - backend
+                        - frontend
+volumes:
+        static:        
