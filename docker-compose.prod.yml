@@ -25,7 +25,7 @@ services:
                         - DOMAIN
                         - USE_LETSENCRYPT=T
                 volumes:
-                        - ./letsencrypt:/etc/letsencrypt
+                        - /etc/letsencrypt:/etc/letsencrypt 
                         - static:/static
                 ports:
                         - "80:80"
