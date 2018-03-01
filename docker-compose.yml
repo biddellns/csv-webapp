@@ -1,7 +1,7 @@
 version: '3'
 services:
         backend:
-                image: csv-demo/backend
+                image: kohonski/csv-demo-backend
                 container_name: backend
                 build: ./backend
                 environment:
@@ -13,11 +13,11 @@ services:
                         - static:/var/www/static
 
         frontend:
-                image: csv-demo/frontend
+                image: kohonski/csv-demo-frontend
                 container_name: frontend
                 build: ./frontend
         nginx:
-                image: csv-demo/nginx
+                image: kohonski/csv-demo-nginx
                 container_name: nginx
                 build: ./nginx
                 environment:
