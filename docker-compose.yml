@@ -15,9 +15,11 @@ services:
         frontend:
                 image: kohonski/csv-demo-frontend
                 container_name: frontend
-                build: ./frontend
-                environment:
-                        - APP_ENV=compose
+                build: 
+                        context: ./frontend
+                        args:
+                                APP_ENV: dev
+
         nginx:
                 image: kohonski/csv-demo-nginx
                 container_name: nginx
