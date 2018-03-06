@@ -18,7 +18,7 @@ services:
                 build: 
                         context: ./frontend
                         args:
-                                APP_ENV: dev
+                                APP_ENV: prod
 
         nginx:
                 image: kohonski/csv-demo-nginx
